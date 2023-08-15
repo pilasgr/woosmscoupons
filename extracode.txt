@@ -1,0 +1,23 @@
+// Με τον παρακάτω κώδικα, το καλάθι εμφανίζει μηνύματα που παρακινεί τον πελάτη να κάνει αγορές από 200€ και πάνω για να πάρει κουπόνια εκπτώσεων
+function show_woocommerce_warning() {
+    // Ελέγχουμε αν είμαστε στη σελίδα καλαθιού του WooCommerce
+    if (is_cart()) {
+        $cart_total = WC()->cart->subtotal;
+
+        // Εάν το σύνολο βρίσκεται μεταξύ 150€ και 199€, εμφανίζουμε το αντίστοιχο warning
+        if ($cart_total >= 100 && $cart_total <= 199) {
+            ?>
+            <div class="woocommerce-message" role="alert" style="color: #3d3d3d; font-weight: bold; font-size: 18px; text-align: center;">
+                Γνωρίζατε πως για παραγγελίες 200€ και άνω λαμβάνετε αυτόματα εκπτωτικό κουπόνι αξίας</br>20€ για την επόμενη παραγγελία σας ή για να το δωρίσετε σε έναν/μία φίλο/η σας;
+            </div>
+            <?php
+        } elseif ($cart_total >= 200) {
+            ?>
+            <div class="woocommerce-message" role="alert" style="color: green; font-weight: bold; font-size: 18px; text-align: center;">
+                Άψογα! Μόλις ξεκλειδώσατε κουπόνι 20€ για την επόμενη παραγγελία σας</br> (ή για να το δωρίσετε σε έναν/μία φίλο/η σας για αγορές 100€ και άνω!)</br>Θα το λάβετε μέσω SMS όταν ολοκληρωθεί η παροούσα παραγγελία σας!
+            </div>
+            <?php
+        }
+    }
+}
+add_action('woocommerce_before_cart', 'show_woocommerce_warning');
