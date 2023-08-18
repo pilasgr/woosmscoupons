@@ -62,7 +62,6 @@ add_action( 'admin_menu', 'loyalty_coupons_add_settings_page' );
 
     <form method="post" action="">
         <p>Καλώς ήλθατε στις ρυθμίσεις του WooSMS Coupon plugin. Εδώ μπορείτε να προσαρμόσετε τις επιλογές σας για τη δημιουργία και αποστολή κουπονιών με SMS στους πελάτες σας. Παρακαλούμε συμπληρώστε τα απαιτούμενα πεδία και κάντε κλικ στο κουμπί 'Αποθήκευση' για να αποθηκεύσετε τις ρυθμίσεις σας.</p>
-        <form method="post" action="">
             <h2>Λογαριασμός clicksend</h2>
             <table class="form-table">
                 <tr>
